@@ -1,0 +1,51 @@
+\begin{frame}{Taylor Series Expansion (1/)}
+Taylor Series is defined as:
+\begin{align*}
+    \phi(x) &= 
+    \phi(x_{i}) + (x-x_{i})\bigg(\frac{\partial \phi}{\partial x}\bigg)_{i}
+    + \frac{(x-x_{i})^{2}}{2!}\bigg(\frac{\partial^{2} \phi}{\partial x^{2}}\bigg)_{i}  \\
+    & +\frac{(x-x_{i})^{3}}{3!}\bigg(\frac{\partial^{3} \phi}{\partial x^{3}}\bigg)_{i} + ... 
+    + \frac{(x-x_{i})^{n}}{n!}\bigg(\frac{\partial^{n} \phi}{\partial x^{n}}\bigg)_{i} + H
+\end{align*}
+where $H$ means \textit{higher order terms}.
+\end{frame}
+
+\begin{frame}{Taylor Series Expansion (2/)}
+To find the first and higher derivatives of at point $x_{i}$ in terms of the function values at neighbouring points:
+\begin{itemize}
+    \item Forward:
+    \[ \bigg(\frac{\partial \phi}{\partial x}\bigg)_{i} = 
+    \frac{\phi_{i+1}-\phi_{i}}{x_{i+1}-x_{i}}
+    - \frac{(x_{i+1}-x_{i})}{2}\bigg(\frac{\partial^{2} \phi}{\partial x^{2}}\bigg)_{i}
+    -\frac{(x_{i+1}-x_{i})^{2}}{6}\bigg(\frac{\partial^{3} \phi}{\partial x^{3}}\bigg)_{i} + H\]   
+    
+    \item Backward:
+    \[ \bigg(\frac{\partial \phi}{\partial x}\bigg)_{i} = 
+    \frac{\phi_{i}-\phi_{i-1}}{x_{i}-x_{i-1}}
+    + \frac{(x_{i}-x_{i-1})}{2}\bigg(\frac{\partial^{2} \phi}{\partial x^{2}}\bigg)_{i}
+    -\frac{(x_{i}-x_{i-1})^{2}}{6}\bigg(\frac{\partial^{3} \phi}{\partial x^{3}}\bigg)_{i} + H\]  
+    
+    \item Central:
+    \begin{align*}
+    \bigg(\frac{\partial \phi}{\partial x}\bigg)_{i} &= 
+    \frac{\phi_{i+1}-\phi_{i-1}}{x_{i+1}-x_{i-1}}
+    - \frac{(x_{i+1}-x_{i})^{2} - (x_{i}-x_{i-1})^{2}}{2(x_{i+1}-x_{i-1})}\bigg(\frac{\partial^{2} \phi}{\partial x^{2}}\bigg)_{i}\\
+    & -\frac{(x_{i+1}-x_{i})^{3} + (x_{i}-x_{i-1})^{3}}{6(x_{i+1}-x_{i-1})}\bigg(\frac{\partial^{3} \phi}{\partial x^{3}}\bigg)_{i} + H
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Taylor Series Expansion (3/)}
+If the distance between the grids are infinitesimally small, \textit{i.e.} $x_{i}-x_{i-1}$ and $x_{i+1}-x_{i}$ are small enough: \textit{the first term dominates, neglect other terms}
+\begin{itemize}
+    \item Forward-difference scheme (FDS): \[ \bigg(\frac{\partial \phi}{\partial x}\bigg)_{i} = \frac{\phi_{i+1}-\phi_{i}}{x_{i+1}-x_{i}}\]
+    \item Backward-difference scheme (BDS): \[ \bigg(\frac{\partial \phi}{\partial x}\bigg)_{i} = \frac{\phi_{i}-\phi_{i-1}}{x_{i}-x_{i-1}}\]
+    \item Central-difference scheme (CDS): \[ \bigg(\frac{\partial \phi}{\partial x}\bigg)_{i} \approx \frac{\phi_{i+1}-\phi_{i-1}}{x_{i+1}-x_{i-1}}\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Taylor Series Expansion (4/)}
+\textbf{Truncation errors} - the terms deleted from the right hand side.
+\[\epsilon_{r} = (\Delta x)^{m}\alpha_{m+1} + (\Delta x)^{m+1}\alpha_{m+2} + ...+ (\Delta x)^{n}\alpha_{n+1}\]
+where $\alpha$'s are higher-order derivatives multiplied by constant factors.
+\end{frame}

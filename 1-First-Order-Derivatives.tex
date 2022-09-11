@@ -1,0 +1,101 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+% \usepackage[T1]{fontenc} DO NOT ENABLE THIS!!!
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+\setbeamertemplate{footline}{}
+\setbeamertemplate{navigation symbols}[horizontal]
+
+\setbeamertemplate{title page}{
+    \begin{minipage}[c][\paperheight]{\textwidth}
+        \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
+        \vfill%
+        \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+        \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+        \usebeamertemplate*{title separator}
+        \begin{minipage}[t]{\textwidth}
+            \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
+            \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+            \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+        \end{minipage}
+        \vfill
+        \vspace*{1mm}
+    \end{minipage}
+}
+
+\metroset{sectionpage=none}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{amsmath}
+
+\usepackage{float}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+\usepackage{xcolor}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+
+\usepackage{hyperref}
+\hypersetup{pdfauthor={Li, Binghuan}, 
+            colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+\title{Approximation of the First Derivative}
+\subtitle{Finite Difference Method\cite{Ferziger2002}}
+\author{Binghuan W Li \ $\lvert$ \   \href{mailto:binghuan.li19@imperial.ac.uk}{binghuan.li19@imperial.ac.uk}}
+\institute{Department of Bioengineering, Imperial College London}
+\titlegraphic{\includegraphics[width=0.3\textwidth]{imgs/Imperial.eps}}
+
+
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Contents}
+\tableofcontents
+\end{frame}
+
+\section{Definition of Derivatives}
+\input{frames/definition-of-derivatives}
+
+\section{Taylor Series Expansion}
+\input{frames/Taylor-expansion}
+
+\section{Polynomial Fitting}
+\input{frames/polynomial-fitting}
+
+\section{Compact Schemes}
+\input{frames/compact-scheme}
+
+\section{Non-Uniform Grids}
+\input{frames/non-uniform-grids}
+
+% COMMENT OUT BUT LEAVE HERE AS ILLUSTRATION ON PURPOSE!!
+% \begin{frame}{Page111} 
+
+% \begin{alertblock}{123123123}
+%  test test test
+%  As this titleformat also uses smallcaps you face the same problemsas with thesmallcapstitleformat. Additionally this format cancause some other problems. Please refer to the documentation ifyou consider using it.As a rule of thumb: Just use it for plaintext-only titles.
+%  \end{alertblock}
+% \end{frame}
+
+% \begin{frame}{Page222}
+% \metroset{block=fill}
+%  \begin{exampleblock}{Example here}
+%  As this titleformat also uses smallcaps you face the same problemsas with thesmallcapstitleformat. Additionally this format cancause some other problems. Please refer to the documentation ifyou consider using it.As a rule of thumb: Just use it for plaintext-only titles.
+%  \end{exampleblock}
+% \end{frame}
+
+\appendix
+
+\begin{frame}{Reference}
+ \bibliography{bibTeX/ferziger.bib}
+ \bibliographystyle{abbrv}
+\end{frame}
+
+\end{document}
